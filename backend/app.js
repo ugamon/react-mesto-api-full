@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const { celebrate, Joi, isCelebrateError } = require('celebrate');
 const { linkRegex, emailRegex } = require('./utils/regexDict');
 const usersRouter = require('./routes/users');

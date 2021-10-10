@@ -6,6 +6,8 @@ const AuthError = require('../errors/auth-err');
 const NotFoundError = require('../errors/not-found-err');
 const DuplicateError = require('../errors/duplicate-error');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
   User
@@ -23,7 +25,7 @@ module.exports.login = (req, res, next) => {
           }
           const token = jwt.sign(
             { _id: userData._id },
-            'some-secret-key',
+            NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
             { expiresIn: '7d' }, // токен будет просрочен через 7дней после создания
           );
           res.send({ token });
