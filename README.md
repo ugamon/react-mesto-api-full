@@ -5,3 +5,4 @@
 
 Сервер находится по адресу - https://ugamon.nomoredomains.club
 Бэкенд по адресу https://ugamon.nomoredomains.club/api
+Фронтенд и Бэкенд находятся на одном сервере.
