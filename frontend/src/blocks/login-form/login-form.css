@@ -1,0 +1,21 @@
+.login-form {
+    width: 358px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+/*   
+  @media all and (max-width: 426px) {
+    .popup__form {
+      width: 282px;
+    }
+  }
+  
+  @media all and (min-width: 427px) {
+    .popup__form {
+      align-self: flex-start;
+      width: 430px;
+      margin-top: 30px;
+    }
+  } */
+  

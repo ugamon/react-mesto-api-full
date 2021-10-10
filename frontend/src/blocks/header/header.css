@@ -1,0 +1,19 @@
+.header {
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 41px;
+}
+
+@media all and (max-width: 881px) {
+  .header {
+    max-width: 100%;
+  }
+}
+
+@media all and (min-width: 881px) {
+  .header {
+    max-width: 880px;
+  }
+}

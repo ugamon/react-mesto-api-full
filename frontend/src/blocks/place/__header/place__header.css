@@ -1,0 +1,9 @@
+.place__header {
+  padding-top: 25px;
+  padding-bottom: 32px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

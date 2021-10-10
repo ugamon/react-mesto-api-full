@@ -1,0 +1,18 @@
+.profile {
+  display: flex;
+}
+
+@media all and (max-width: 480px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media all and (min-width: 480px) {
+  .profile {
+    display: grid;
+    max-width: 880px;
+    grid-template-columns: max-content max-content auto;
+  }
+}

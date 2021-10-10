@@ -1,0 +1,10 @@
+.place__button-like {
+  width: 22px;
+  height: 19px;
+  overflow: visible;
+  background-image: url("../../../images/like-button.svg");
+}
+
+.place__button-like:hover {
+  filter: opacity(0.5);
+}

@@ -1,0 +1,21 @@
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+@media all and (max-width: 426px) {
+  .popup__form {
+    width: 282px;
+  }
+}
+
+@media all and (min-width: 427px) {
+  .popup__form {
+    align-self: flex-start;
+    width: 430px;
+    margin-top: 30px;
+  }
+}

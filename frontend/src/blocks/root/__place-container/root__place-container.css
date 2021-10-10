@@ -1,0 +1,18 @@
+.root__place-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media all and (max-width: 426px) {
+  .root__place-container {
+    margin-top: 36px;
+    margin-bottom: 0;
+  }
+}
+
+@media all and (min-width: 427px) {
+  .root__place-container {
+    margin-top: 51px;
+    margin-bottom: 0;
+  }
+}

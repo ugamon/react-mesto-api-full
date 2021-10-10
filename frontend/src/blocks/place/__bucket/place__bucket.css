@@ -1,0 +1,13 @@
+.place__bucket {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+
+    background-image: url('../../../images/bucket.svg');
+    width: 18px;
+    height: 19.3px;
+}
+
+.place__bucket:hover {
+    filter: opacity(0.6);
+  }

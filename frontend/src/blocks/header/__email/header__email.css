@@ -1,0 +1,7 @@
+.header__email {
+    width: calc(141px + 75px + 24px);
+    justify-self: right;
+    display: flex;
+    justify-content: space-between;
+
+}

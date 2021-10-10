@@ -1,0 +1,22 @@
+@media all and (max-width: 880px) {
+  .header__logo {
+    position: relative;
+    margin-left: 27px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    width: 103.74px;
+    height: 24.4px;
+  }
+}
+
+@media all and (min-width: 881px) {
+  .header__logo {
+    margin-left: 0;
+    margin-top: 0;
+
+    width: 142px;
+    height: 33px;
+    margin-bottom: 41px;
+  }
+}

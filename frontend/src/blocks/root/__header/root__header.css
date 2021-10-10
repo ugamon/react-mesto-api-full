@@ -1,0 +1,12 @@
+@media all and (max-width: 426px) {
+  .root__header {
+    padding-top: 28px;
+  }
+}
+
+@media all and (min-width: 427px) {
+  .root__header {
+    padding-top: 45px;
+    margin: 0 auto 0 auto;
+  }
+}

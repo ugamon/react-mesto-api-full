@@ -1,0 +1,17 @@
+.profile__avatar-container {
+  position: relative;
+}
+
+@media all and (min-width: 480px) {
+  .profile__avatar-container {
+    margin-left: 27px;
+    margin-right: 10px;
+  }
+}
+
+@media all and (min-width: 880px) {
+  .profile__avatar-container {
+    margin-left: 0;
+    margin-right: 30px;
+  }
+}

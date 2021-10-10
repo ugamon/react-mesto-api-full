@@ -1,0 +1,27 @@
+.root__footer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media all and (max-width: 426px) {
+  .root__footer {
+    margin-top: 48px;
+    margin-bottom: 36px;
+  }
+}
+
+@media all and (min-width: 427px) {
+  .root__footer {
+    margin-top: 67px;
+    margin-bottom: 60px;
+    margin-left: 27px;
+  }
+}
+
+@media all and (min-width: 880px) {
+  .root__footer {
+    margin-top: 67px;
+    margin-bottom: 60px;
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,44 @@
+.profile__profession {
+  text-align: center;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  margin-bottom: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 298px;
+}
+
+@media all and (max-width: 427px) {
+  .profile__profession {
+    max-width: 230px;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+
+
+@media all and (min-width: 427px) {
+  .profile__profession {
+    max-width: 230px;
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 21.78px;
+    text-align: start;
+  }
+}
+
+
+@media all and (min-width: 600px) {
+  .profile__profession {
+    max-width: 260px;
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 21.78px;
+    text-align: start;
+  }
+}

@@ -1,0 +1,7 @@
+@media all and (min-width: 427px) {
+  .profile__info-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

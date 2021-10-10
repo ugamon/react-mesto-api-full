@@ -1,0 +1,25 @@
+.name-input-error  {
+    display: block;
+    visibility: hidden;
+    margin: 5px auto 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #FF0000;
+
+}
+  
+  @media all and (max-width: 426px) {
+    .name-input-error {
+      width: 238px;    
+    }
+  }
+  
+  @media all and (min-width: 427px) {
+    .name-input-error {
+      width: 358px;
+    }
+  }
+  
