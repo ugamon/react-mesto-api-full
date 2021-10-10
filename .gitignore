@@ -25,6 +25,7 @@ node_modules
 
 # production
 build
+prod-fronted
 
 # misc
 .DS_Store
