@@ -16,7 +16,7 @@ const app = express();
 // подключаемся к серверу mongo
 mongoose.connect('mongodb://localhost:27017/mestodb', {});
 app.use(cors({
-  origin: /ugamon.nomoredomains.club/,
+  origin: '*',
   optionsSuccessStatus: 200,
   allowedHeaders: ['*'],
 }));
@@ -74,9 +74,8 @@ app.post('/signup', celebrate({
   }),
 }), createUser);
 
-app.use(auth);
-app.use('/users', usersRouter);
-app.use('/cards', cardRouter);
+app.use('/users', auth, usersRouter);
+app.use('/cards', auth, cardRouter);
 app.use(() => {
   throw new NotFoundError();
 });

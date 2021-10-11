@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
 const ValidationRequiredError = require('../errors/auth-val-err');
 
-const { NODE_ENV, JWT_SECRET } = process.env;
-
 module.exports.auth = (req, res, next) => {
+  const { NODE_ENV, JWT_SECRET } = process.env;
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
