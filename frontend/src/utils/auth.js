@@ -45,7 +45,7 @@ class Auth extends BaseAuth{
 }
 
 const auth = new Auth({
-    baseUrl: `https://ugamon.nomoredomains.club`
+    baseUrl: `https://ugamon.nomoredomains.club/api`
   });
   
   export default auth;
