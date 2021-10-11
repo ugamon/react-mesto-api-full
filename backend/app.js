@@ -76,9 +76,9 @@ app.post('/signup', celebrate({
 
 app.use('/users', auth, usersRouter);
 app.use('/cards', auth, cardRouter);
-app.use((req, res, next) => {
-  next(new NotFoundError());
-});
+// app.use((req, res, next) => {
+//   next(new NotFoundError());
+// });
 
 app.use(errorLogger);
 
