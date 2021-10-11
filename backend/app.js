@@ -51,20 +51,20 @@ app.use(requestLogger);
 //   next();
 // });
 
-app.get('/crash-test', () => {
+app.get('/api/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
 
-app.post('/signin', celebrate({
+app.post('/api/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().pattern(emailRegex),
     password: Joi.string().required(),
   }),
 }), login);
 
-app.post('/signup', celebrate({
+app.post('/api/signup', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2),
@@ -74,11 +74,11 @@ app.post('/signup', celebrate({
   }),
 }), createUser);
 
-app.use('/users', auth, usersRouter);
-app.use('/cards', auth, cardRouter);
-// app.use((req, res, next) => {
-//   next(new NotFoundError());
-// });
+app.use('/api/users', auth, usersRouter);
+app.use('/api/cards', auth, cardRouter);
+app.use((req, res, next) => {
+  next(new NotFoundError());
+});
 
 app.use(errorLogger);
 
