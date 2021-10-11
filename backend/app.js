@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 const { celebrate, Joi, isCelebrateError } = require('celebrate');
 const { linkRegex, emailRegex } = require('./utils/regexDict');
@@ -14,8 +15,42 @@ const app = express();
 
 // подключаемся к серверу mongo
 mongoose.connect('mongodb://localhost:27017/mestodb', {});
+app.use(cors({
+  origin: new RegExp(/ugamon.nomoredomains.club/),
+  optionsSuccessStatus: 200,
+  allowedHeaders: ['*'],
+}));
 app.use(express.json());
 app.use(requestLogger);
+
+// const allowedCors = [
+//   'http://ugamon.nomoredomains.club',
+//   'https://ugamon.nomoredomains.club',
+//   'http://localhost:3000',
+//   'http://localhost:3001',
+// ];
+
+// app.use((req, res, next) => {
+//   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
+//   const requestHeaders = req.headers['access-control-request-headers'];
+//   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
+
+//   // Значение для заголовка Access-Control-Allow-Methods по умолчанию (разрешены все типы запросов)
+//   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+
+//   // Если это предварительный запрос, добавляем нужные заголовки
+//   if (method === 'OPTIONS') {
+//     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+//     res.header('Access-Control-Allow-Headers', requestHeaders);
+//   }
+
+//   if (allowedCors.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', origin);
+//     res.end();
+//   }
+//   next();
+// });
+
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
