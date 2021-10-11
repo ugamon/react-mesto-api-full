@@ -98,7 +98,7 @@ class Api extends RestfullClient {
 
 
 const api = new Api({
-  baseUrl: `https://auth.nomoreparties.co`
+  baseUrl: `http://ugamon.nomoredomains.club/api`
 });
 
 export default api;

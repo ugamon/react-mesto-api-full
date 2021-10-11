@@ -1,3 +1,3 @@
 module.exports.dataFormatter = (res, sendData) => {
-  res.send({ data: sendData });
+  res.json({ data: sendData });
 };
