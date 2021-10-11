@@ -16,7 +16,7 @@ const app = express();
 // подключаемся к серверу mongo
 mongoose.connect('mongodb://localhost:27017/mestodb', {});
 app.use(cors({
-  origin: new RegExp(/ugamon.nomoredomains.club/),
+  origin: new RegExp(/nomoredomains/),
   optionsSuccessStatus: 200,
   allowedHeaders: ['*'],
 }));
