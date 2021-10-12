@@ -28,12 +28,13 @@ module.exports.deleteCard = (req, res, next) => {
       throw new NotFoundError();
     })
     .then(({ owner }) => {
-      if (owner !== req.user._id) {
+      if (owner.toHexString() !== req.user._id) {
         // throw new Error('Permission denied');
         throw new PermissionDeniedError();
       }
       Card
-        .findByIdAndRemove((cardData) => dataFormatter(res, cardData));
+        .findByIdAndRemove({ _id: req.params.cardId })
+        .then((cardData) => dataFormatter(res, cardData));
     })
     .catch(next);
 };

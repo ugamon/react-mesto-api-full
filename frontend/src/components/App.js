@@ -227,7 +227,7 @@ class App extends React.Component {
               () => {
                 api
                   .getUserInfo()
-                  .then((user) => this.setState({ currentUser: user }))
+                  .then((user) => this.setState({ currentUser: user[0] }))
                   .catch((err) => console.log(err));
 
                 api

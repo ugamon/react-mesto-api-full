@@ -56,9 +56,9 @@ class Api extends RestfullClient {
       }
     })
     .then(res => res.json())
-      .then(data => {
+      .then(({ data }) => {
         this.setAuthHeaders(token, { "Content-Type": "application/json" })
-        return data
+        return data 
       })
   } 
 
@@ -99,6 +99,7 @@ class Api extends RestfullClient {
 
 const api = new Api({
   baseUrl: `https://ugamon.nomoredomains.club/api`
+  //baseUrl: `http://localhost:3000/api`
 });
 
 export default api;

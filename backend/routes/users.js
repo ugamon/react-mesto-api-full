@@ -1,13 +1,13 @@
 const usersRouter = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
-const { linkRegex } = require('../utils/regexDict');
 const {
   getAllUsers, findUser, updateProfile, updateProfileAvatar, currentUser,
 } = require('../controllers/users');
+const { isUrl } = require('../utils/urlValidator');
 
 usersRouter.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().pattern(linkRegex),
+    avatar: Joi.string().required().custom(isUrl),
   }),
 }), updateProfileAvatar);
 
@@ -18,13 +18,13 @@ usersRouter.patch('/me', celebrate({
   }),
 }), updateProfile);
 
-usersRouter.get('/:userId', celebrate({
-  params: Joi.object().keys({
-    userId: Joi.string().alphanum().length(24),
-  }),
-}), findUser);
-
 usersRouter.get('/me', currentUser);
 usersRouter.get('/', getAllUsers);
+
+usersRouter.get('/:userId', celebrate({
+  params: Joi.object().keys({
+    userId: Joi.string().alphanum(),
+  }),
+}), findUser);
 
 module.exports = usersRouter;
