@@ -98,7 +98,7 @@ class Api extends RestfullClient {
 
 
 const api = new Api({
-  baseUrl: `https://ugamon.nomoredomains.club/api`
+  baseUrl: `https://ugamon2.nomoredomains.club/api`
   //baseUrl: `http://localhost:3000/api`
 });
 
