@@ -58,7 +58,7 @@ app.use((err, req, res, next) => {
   const status = err.statusCode || 500;
   const { message } = err;
   if (isCelebrateError(err)) {
-    res.status(400).send({ message: 'Неправильные данные в запросе' });
+    res.status(400).send({ message: 'Celebrate error' });
   } else {
     res.status(status).send({ message: message || 'Произошла ошибка на сервере' });
   }
