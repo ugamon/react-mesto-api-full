@@ -3,6 +3,6 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Сервер находится по адресу - https://ugamon.nomoredomains.club
-Бэкенд по адресу https://ugamon.nomoredomains.club/api
+Сервер находится по адресу - https://ugamon2.nomoredomains.club
+Бэкенд по адресу https://ugamon2.nomoredomains.club/api
 Фронтенд и Бэкенд находятся на одном сервере.
