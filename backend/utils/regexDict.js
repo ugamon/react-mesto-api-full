@@ -1,1 +1,1 @@
-module.exports.emailRegex = new RegExp('^[^\s@]+@[^\s@]+\.[^\s@]{2,}$');
+module.exports.emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;

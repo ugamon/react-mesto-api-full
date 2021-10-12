@@ -72,17 +72,17 @@ module.exports.getAllUsers = (req, res, next) => {
     .catch(next);
 };
 
-module.exports.findUser = (req, res, next) => {
-  User
-    .find({ _id: req.params.userId })
-    .orFail(() => {
-      // const error = new MangooseError('Lookup to id failed');
-      // throw error;
-      throw new NotFoundError();
-    })
-    .then((userData) => dataFormatter(res, userData))
-    .catch(next);
-};
+// module.exports.findUser = (req, res, next) => {
+//   User
+//     .find({ _id: req.params.userId })
+//     .orFail(() => {
+//       // const error = new MangooseError('Lookup to id failed');
+//       // throw error;
+//       throw new NotFoundError();
+//     })
+//     .then((userData) => dataFormatter(res, userData))
+//     .catch(next);
+// };
 
 module.exports.updateProfile = (req, res, next) => {
   const { name, about } = req.body;
