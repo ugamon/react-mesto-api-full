@@ -3,13 +3,14 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const { celebrate, Joi, isCelebrateError } = require('celebrate');
-const { linkRegex, emailRegex } = require('./utils/regexDict');
+const { emailRegex } = require('./utils/regexDict');
 const usersRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const { login, createUser } = require('./controllers/users');
 const { auth } = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { isUrl } = require('./utils/urlValidator');
 
 const app = express();
 
@@ -43,7 +44,7 @@ app.post('/api/signup', celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2),
-    avatar: Joi.string().pattern(linkRegex),
+    avatar: Joi.string().custom(isUrl),
     email: Joi.string().required().pattern(emailRegex),
     password: Joi.string().required(),
   }),
