@@ -39,9 +39,6 @@ module.exports.createUser = (req, res, next) => {
     .then((hash) => User.create({
       email: req.body.email,
       password: hash,
-      name: req.body.name,
-      avatar: req.body.avatar,
-      about: req.body.about,
     }))
     .then(({
       email, name, avatar, about,

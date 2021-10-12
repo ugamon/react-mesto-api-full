@@ -10,7 +10,6 @@ const { login, createUser } = require('./controllers/users');
 const { auth } = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { isUrl } = require('./utils/urlValidator');
 
 const app = express();
 
@@ -42,9 +41,6 @@ app.post('/api/signin', celebrate({
 
 app.post('/api/signup', celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2),
-    avatar: Joi.string().custom(isUrl),
     email: Joi.string().required().pattern(emailRegex),
     password: Joi.string().required(),
   }),

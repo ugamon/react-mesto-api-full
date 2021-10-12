@@ -5,6 +5,8 @@ const {
 } = require('../controllers/users');
 const { isUrl } = require('../utils/urlValidator');
 
+usersRouter.get('/me', currentUser);
+
 usersRouter.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
     avatar: Joi.string().required().custom(isUrl),
@@ -18,7 +20,6 @@ usersRouter.patch('/me', celebrate({
   }),
 }), updateProfile);
 
-usersRouter.get('/me', currentUser);
 usersRouter.get('/', getAllUsers);
 
 // usersRouter.get('/:userId', celebrate({
