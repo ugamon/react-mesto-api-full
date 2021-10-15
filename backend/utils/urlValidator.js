@@ -1,9 +1,14 @@
-const validator = require('validator');
+const InvalidDataError = require('../errors/auth-val-err');
+
+function validURL(value) {
+  const pattern = /^(https:\/\/|http:\/\/|www\.)/;
+  return pattern.test(value);
+}
 
 module.exports.isUrl = (value) => {
-  const result = validator.isURL(value);
+  const result = validURL(value);
   if (result) {
     return value;
   }
-  throw new Error('URL validation err');
+  throw new InvalidDataError();
 };
