@@ -15,7 +15,7 @@ module.exports.login = (req, res, next) => {
     .then((userData) => {
       if (!userData) {
         // return Promise.reject(new Error('Неправильные почта или пароль'));
-        throw new NotFoundError();
+        throw new AuthError();
       }
       return bcrypt.compare(password, userData.password)
         .then((matched) => {
@@ -69,18 +69,6 @@ module.exports.getAllUsers = (req, res, next) => {
     .catch(next);
 };
 
-// module.exports.findUser = (req, res, next) => {
-//   User
-//     .find({ _id: req.params.userId })
-//     .orFail(() => {
-//       // const error = new MangooseError('Lookup to id failed');
-//       // throw error;
-//       throw new NotFoundError();
-//     })
-//     .then((userData) => dataFormatter(res, userData))
-//     .catch(next);
-// };
-
 module.exports.updateProfile = (req, res, next) => {
   const { name, about } = req.body;
   User
@@ -106,6 +94,18 @@ module.exports.updateProfileAvatar = (req, res, next) => {
       { avatar },
       { new: true, runValidators: true, upsert: false },
     )
+    .orFail(() => {
+      // const error = new MangooseError('Lookup to id failed');
+      // throw error;
+      throw new NotFoundError();
+    })
+    .then((userData) => dataFormatter(res, userData))
+    .catch(next);
+};
+
+module.exports.findUser = (req, res, next) => {
+  User
+    .find({ _id: req.params.userId })
     .orFail(() => {
       // const error = new MangooseError('Lookup to id failed');
       // throw error;

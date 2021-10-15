@@ -1,7 +1,7 @@
-const usersRouter = require('express').Router();
+const usersRouter = require('express').Router({ strict: true });
 const { celebrate, Joi } = require('celebrate');
 const {
-  getAllUsers, updateProfile, updateProfileAvatar, currentUser,
+  getAllUsers, updateProfile, updateProfileAvatar, currentUser, findUser,
 } = require('../controllers/users');
 const { isUrl } = require('../utils/urlValidator');
 
@@ -20,12 +20,12 @@ usersRouter.patch('/me', celebrate({
   }),
 }), updateProfile);
 
-usersRouter.get('/', getAllUsers);
+usersRouter.get('/:userId', celebrate({
+  params: Joi.object().keys({
+    userId: Joi.string().alphanum(),
+  }),
+}), findUser);
 
-// usersRouter.get('/:userId', celebrate({
-//   params: Joi.object().keys({
-//     userId: Joi.string().alphanum(),
-//   }),
-// }), findUser);
+usersRouter.get('/', getAllUsers);
 
 module.exports = usersRouter;
